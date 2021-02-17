@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -29,8 +30,8 @@ public class Empresa {
 	@Column(name = "NOME_FANTASIA")
 	private String nomeFantasia;
 	
-	@Column(name = "CD_ENDERECO")
 	@OneToOne
+	@JoinColumn(name = "id", referencedColumnName = "ID_ENDERECO")
 	private Endereco endereco;
 	
 	@Column(name = "NUMERO_CONTATO")

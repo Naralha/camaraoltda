@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import br.com.projeto.camaraoltda.pessoa.perfil.Perfil;
@@ -25,8 +25,8 @@ public class Experiencia {
 	@Column(name = "ID_EXPERIENCIA")
 	private Integer id;
 	
-	@Column(name = "FK_PERFIL")
 	@ManyToOne
+    @JoinColumn(name = "ID_PERFIL")
 	private Perfil perfil;
 	
 	@Column(name = "EMPRESA")

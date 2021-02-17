@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.projeto.camaraoltda.perfil.Perfil;
 import lombok.Data;
 
@@ -26,6 +28,7 @@ public class Formacao {
 	
 	@ManyToOne
     @JoinColumn(name = "ID_PERFIL")
+	@JsonIgnore
 	private Perfil perfil;
 	
 	@Column(name = "INSTITUTO")

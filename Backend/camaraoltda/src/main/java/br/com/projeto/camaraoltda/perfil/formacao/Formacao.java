@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.pessoa.perfil.formacao;
+package br.com.projeto.camaraoltda.perfil.formacao;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.com.projeto.camaraoltda.pessoa.perfil.Perfil;
+import br.com.projeto.camaraoltda.perfil.Perfil;
 import lombok.Data;
 
 @Data

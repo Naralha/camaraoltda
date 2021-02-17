@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.pessoa.perfil.competencia;
+package br.com.projeto.camaraoltda.perfil.competencia;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

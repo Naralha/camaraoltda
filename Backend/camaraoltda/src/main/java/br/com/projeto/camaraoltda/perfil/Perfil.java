@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.pessoa.perfil;
+package br.com.projeto.camaraoltda.perfil;
 
 import java.util.List;
 
@@ -14,10 +14,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import br.com.projeto.camaraoltda.pessoa.perfil.areaInteresse.AreaInteresse;
-import br.com.projeto.camaraoltda.pessoa.perfil.competencia.Competencia;
-import br.com.projeto.camaraoltda.pessoa.perfil.experiencia.Experiencia;
-import br.com.projeto.camaraoltda.pessoa.perfil.formacao.Formacao;
+import br.com.projeto.camaraoltda.perfil.areaInteresse.AreaInteresse;
+import br.com.projeto.camaraoltda.perfil.competencia.Competencia;
+import br.com.projeto.camaraoltda.perfil.experiencia.Experiencia;
+import br.com.projeto.camaraoltda.perfil.formacao.Formacao;
+import br.com.projeto.camaraoltda.potencialMatch.PotencialMatch;
 import lombok.Data;
 
 @Data
@@ -58,5 +59,8 @@ public class Perfil {
             inverseJoinColumns={@JoinColumn(name="ID_AREA_INTERESSE",   
             referencedColumnName="ID_AREA_INTERESSE")})
 	private List<AreaInteresse> areaInteresses;
+	
+	@OneToMany(mappedBy="perfil")
+	private List<PotencialMatch> potencialMatchs;
 	
 }

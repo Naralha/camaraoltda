@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -32,18 +35,28 @@ public class Perfil {
 	private String nome;
 	
 	@Column(name = "IMAGEM")
-	private byte[] imagem;
+	private String enderecoImagem;
 	
-	@OneToMany
+	@OneToMany(mappedBy="perfil")
 	private List<Formacao> formacoes;
 	
-	@OneToMany
+	@OneToMany(mappedBy="perfil")
 	private List<Experiencia> experiencias;
 	
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name = "PERFIL_COMPETENCIA",
+            joinColumns={@JoinColumn(name="ID_PERFIL",  
+            referencedColumnName="ID_PERFIL")},  
+            inverseJoinColumns={@JoinColumn(name="ID_COMPETENCIA",   
+            referencedColumnName="ID_COMPETENCIA")})
 	private List<Competencia> competencias;
 	
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name = "PERFIL_AREAINTERESSE",
+            joinColumns={@JoinColumn(name="ID_PERFIL",  
+            referencedColumnName="ID_PERFIL")},  
+            inverseJoinColumns={@JoinColumn(name="ID_AREA_INTERESSE",   
+            referencedColumnName="ID_AREA_INTERESSE")})
 	private List<AreaInteresse> areaInteresses;
 	
 }

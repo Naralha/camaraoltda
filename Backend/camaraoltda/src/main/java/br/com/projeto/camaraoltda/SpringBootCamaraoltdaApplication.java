@@ -9,10 +9,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan(basePackages = {"br.com.projeto.camaraoltda"})
 @EnableJpaRepositories
-public class SpringBootDuplicidadeApplication {
+public class SpringBootCamaraoltdaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootDuplicidadeApplication.class, args);
+		SpringApplication.run(SpringBootCamaraoltdaApplication.class, args);
 	}
 
 }

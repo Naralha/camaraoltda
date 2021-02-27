@@ -1,10 +1,16 @@
 #!/bin/bash
 read_parameters() {
-    while getopts "r" opt; do
+    while getopts "u:p:r" opt; do
         case $opt in
             r)
                 RESET_DATABASE=true
                 ;;
+            u)
+                POSTGRES_USERNAME="${OPTARG}"
+                ;;
+            p)
+                POSTGRES_PASSWORD="${OPTARG}"
+                ;;  
             \?)
                 exit 1
                 ;;
@@ -19,7 +25,7 @@ docker-compose 2>/dev/null
 
 if [ "${RESET_DATABASE}" = "true" ]; then
     echo "Removendo os volumes existentes..."
-    docker volume rm "pgdata" 2>/dev/null
+    docker volume rm "camaraoltda_pgdata" 2>/dev/null
 fi
 
 echo "Subindo os novos containers..."
@@ -29,5 +35,20 @@ sleep 15
 
 echo "Fazendo carga no banco..."
 
-docker cp ./deploy_files/carga_pesada.sql postgres:/carga_pesada.sql
-docker exec postgres psql -d camaraoltda -U postgres -W -f "./carga_pesada.sql"
+echo "*:*:*:*:${POSTGRES_PASSWORD}" > "${HOME}/pgpass.conf"
+
+docker cp "${HOME}/pgpass.conf" postgres:/
+docker cp ./deploy_files/carga_pesada.sql postgres:/carga.pesada.sql
+
+docker exec -it postgres bash -c "chmod 0600 ./pgpass.conf"
+
+PGPASSFILE=/pgpass.conf docker exec postgres psql -d camaraoltda -w -U "postgres" -f "./carga.pesada.sql"
+
+if [ $? != 0 ]; then
+    echo " Failed"
+else
+    echo " Succeeded"
+fi
+
+# docker exec postgres rm "pgpass.conf"
+rm "${HOME}/pgpass.conf";

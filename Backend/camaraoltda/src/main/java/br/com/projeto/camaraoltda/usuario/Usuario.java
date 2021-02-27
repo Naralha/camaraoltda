@@ -31,6 +31,9 @@ public class Usuario {
 	@Column(name = "IMAGEM")
 	private String enderecoImagem;
 	
+	@Column(name = "IDADE")
+	private String idade;
+	
 	@OneToMany(mappedBy = "usuario")
 	private List<Curriculo> listaCurriculos;
 }

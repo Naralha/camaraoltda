@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -19,10 +20,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.projeto.camaraoltda.potencialMatch.PotencialMatch;
 import br.com.projeto.camaraoltda.usuario.Usuario;
-import br.com.projeto.camaraoltda.usuario.curriculo.areaInteresse.AreaInteresse;
+import br.com.projeto.camaraoltda.usuario.curriculo.competencia.Area;
 import br.com.projeto.camaraoltda.usuario.curriculo.competencia.Competencia;
 import br.com.projeto.camaraoltda.usuario.curriculo.experiencia.Experiencia;
-import br.com.projeto.camaraoltda.usuario.curriculo.formacao.Formacao;
 import lombok.Data;
 
 @Data
@@ -37,9 +37,6 @@ public class Curriculo {
 	private Integer id;
 	
 	@OneToMany(mappedBy="curriculo")
-	private List<Formacao> formacoes;
-	
-	@OneToMany(mappedBy="curriculo")
 	private List<Experiencia> experiencias;
 	
 	@ManyToMany
@@ -50,13 +47,9 @@ public class Curriculo {
             referencedColumnName="ID_COMPETENCIA")})
 	private List<Competencia> competencias;
 	
-	@ManyToMany
-	@JoinTable(name = "CURRICULO_AREAINTERESSE",
-            joinColumns={@JoinColumn(name="ID_CURRICULO",  
-            referencedColumnName="ID_CURRICULO")},  
-            inverseJoinColumns={@JoinColumn(name="ID_AREA_INTERESSE",   
-            referencedColumnName="ID_AREA_INTERESSE")})
-	private List<AreaInteresse> areaInteresses;
+	@OneToOne
+	@JoinColumn(name = "idArea", referencedColumnName = "ID_AREA")
+	private Area areaInteresse;
 	
 	@OneToMany(mappedBy="curriculo")
 	private List<PotencialMatch> potencialMatchs;

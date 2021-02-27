@@ -12,6 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import br.com.projeto.camaraoltda.usuario.curriculo.Curriculo;
+import br.com.projeto.camaraoltda.usuario.curriculo.formacao.Formacao;
 import lombok.Data;
 
 @Data
@@ -36,4 +37,7 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Curriculo> listaCurriculos;
+	
+	@OneToMany(mappedBy="usuario")
+	private List<Formacao> formacoes;
 }

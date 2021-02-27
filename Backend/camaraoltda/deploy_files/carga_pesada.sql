@@ -11,7 +11,7 @@ values
 insert into
     usuario
 values
-    (3, 'teste.url', '37' 'Ellon Musk',);
+    (3, 'teste.url', '37' 'Ellon Musk');
 
 insert into
     usuario

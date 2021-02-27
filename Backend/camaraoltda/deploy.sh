@@ -21,12 +21,15 @@ read_parameters() {
 read_parameters "$@"
 
 echo "Removendo containers existentes..."
-docker-compose 2>/dev/null
+docker-compose down 2>/dev/null
 
 if [ "${RESET_DATABASE}" = "true" ]; then
     echo "Removendo os volumes existentes..."
-    docker volume rm "camaraoltda_pgdata" 2>/dev/null
+    docker volume rm "camaraoltda_pgdata"
+    docker volume rm "deploy_files_pgdata"
 fi
+
+docker-compose build --no-cache
 
 echo "Subindo os novos containers..."
 docker-compose up -d
@@ -50,5 +53,5 @@ else
     echo " Succeeded"
 fi
 
-# docker exec postgres rm "pgpass.conf"
+docker exec postgres rm "pgpass.conf"
 rm "${HOME}/pgpass.conf";

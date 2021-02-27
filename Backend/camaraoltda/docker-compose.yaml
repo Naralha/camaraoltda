@@ -30,7 +30,7 @@ services:
     networks:
       - job-match-network
   pgadmin:
-    image: dpage/pgadmin4:2020-06-23-1
+    image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: "postgres"
       PGADMIN_DEFAULT_PASSWORD: "postgres"

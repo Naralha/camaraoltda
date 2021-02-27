@@ -15,5 +15,10 @@ public class PerfilService implements IPerfilService{
 	public List<Perfil> findAll() {
 		return perfilRepository.findAll();
 	}
+	
+	@Override
+	public Perfil save(Perfil perfil) {
+		return perfilRepository.save(perfil);
+	}
 
 }

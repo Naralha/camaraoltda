@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.pessoa.perfil.experiencia;
+package br.com.projeto.camaraoltda.usuario.curriculo.formacao;
 
 import java.util.Date;
 
@@ -11,29 +11,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.com.projeto.camaraoltda.pessoa.perfil.Perfil;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.projeto.camaraoltda.usuario.curriculo.Curriculo;
+import lombok.Data;
 
 @Data
 @Entity
-@Table(name="EXPERIENCIA")
-public class Experiencia {
+@Table(name="FORMACAO")
+public class Formacao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_EXPERIENCIA")
+	@Column(name = "ID_FORMACAO")
 	private Integer id;
 	
 	@ManyToOne
-    @JoinColumn(name = "ID_PERFIL")
-	private Perfil perfil;
+    @JoinColumn(name = "ID_CURRICULO")
+	@JsonIgnore
+	private Curriculo curriculo;
 	
-	@Column(name = "EMPRESA")
-	private String empresa;
+	@Column(name = "INSTITUTO")
+	private String instituto;
 	
-	@Column(name = "CARGO")
-	private String cargo;
+	@Column(name = "CURSO")
+	private String curso;
 	
 	@Column(name = "DT_INICIO")
 	private Date dataInicio;
@@ -41,4 +43,7 @@ public class Experiencia {
 	@Column(name = "DT_FIM")
 	private Date dataFim;
 	
+	//criar enum
+	@Column(name = "STATUS")
+	private String Status;
 }

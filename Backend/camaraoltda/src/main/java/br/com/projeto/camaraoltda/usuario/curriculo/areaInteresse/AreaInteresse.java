@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.pessoa.perfil.competencia;
+package br.com.projeto.camaraoltda.usuario.curriculo.areaInteresse;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,17 +11,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="COMPETENCIA")
-public class Competencia {
-
+@Table(name="AREA_INTERESSE")
+public class AreaInteresse {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_COMPETENCIA")
+	@Column(name = "ID_AREA_INTERESSE")
 	private Integer id;
 	
-	//Criar enum
-	@Column(name = "AREA")
-	private String area;
-	
+	//Criar enum e tabela dominio
+	@Column(name = "AREA_INTERESSE")
+	private String areaInteresse;
 	
 }

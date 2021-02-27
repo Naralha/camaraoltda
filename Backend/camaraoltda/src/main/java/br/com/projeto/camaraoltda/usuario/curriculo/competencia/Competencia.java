@@ -1,29 +1,28 @@
-package br.com.projeto.camaraoltda.pessoa;
+package br.com.projeto.camaraoltda.usuario.curriculo.competencia;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="PESSOA")
-public class Pessoa {
+@Table(name="COMPETENCIA")
+public class Competencia {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@PrimaryKeyJoinColumn
-	@Column(name = "ID_PESSOA")
+	@Column(name = "ID_COMPETENCIA")
 	private Integer id;
 	
-	@Column(name = "EMAIL")
-	private String email;
+	@Column(name = "ID_PAI")
+	private String idPai;
 	
-	@Column(name = "SENHA")
-	private String senha;
+	@Column(name = "TIPO")
+	private String tipo;
+	
 }

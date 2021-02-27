@@ -21,30 +21,29 @@ public class UsuarioDao implements IUsuarioDao {
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 	@Override
-	public List<Usuario> findByAreaVaga(String area) {
+	public List<Integer> findByAreaVaga(String area) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("select u.* from Usuario u, Curriculo c, Area_Interesse ai, Area a, curriculo_areainteresse ca");
-		sb.append(" where a.id_area = ai.id_area");
-		sb.append(" and ai.id_area_interesse = ca.id_area_interesse ");
-		sb.append(" and ca.id_curriculo = c.id_curriculo ");
+		sb.append("select u.id_usuario from Usuario u, Curriculo c,  Area a");
+		sb.append(" where a.id_area = c.id_area");
 		sb.append(" and c.id_usuario = u.id_usuario ");
-		sb.append("  and a.id_area = :area");
+		sb.append(" and a.id_area = :area");
+		
 		SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("area", Integer.valueOf(area));
 		
-		return namedParameterJdbcTemplate.query(sb.toString(), namedParameters, new UsuarioRowMapper());
+		return namedParameterJdbcTemplate.query(sb.toString(), namedParameters, new IntegerRowMapper());
 	}
 	
-	public class UsuarioRowMapper implements RowMapper<Usuario> {
+	public class IntegerRowMapper implements RowMapper<Integer> {
 	    @Override
-	    public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        Usuario usuario = new Usuario();
-
-	        usuario.setId(rs.getInt("ID_USUARIO"));
-	        usuario.setIdade(rs.getString("IDADE"));
-	        usuario.setEnderecoImagem(rs.getString("IMAGEM"));
-	        usuario.setNome(rs.getString("NOME"));
+	    public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
 	        
-	        return usuario;
+
+//	        usuarioÇ.setId();
+//	        usuario.setIdade(rs.getString("IDADE"));
+//	        usuario.setEnderecoImagem(rs.getString("IMAGEM"));
+//	        usuario.setNome(rs.getString("NOME"));
+	        
+	        return rs.getInt("ID_USUARIO");
 	    }
 	}
 }

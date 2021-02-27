@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.projeto.camaraoltda.usuario.curriculo.Curriculo;
+import br.com.projeto.camaraoltda.usuario.Usuario;
 import lombok.Data;
 
 @Data
@@ -27,9 +27,9 @@ public class Formacao {
 	private Integer id;
 	
 	@ManyToOne
-    @JoinColumn(name = "ID_CURRICULO")
+    @JoinColumn(name = "ID_USUARIO")
 	@JsonIgnore
-	private Curriculo curriculo;
+	private Usuario usuario;
 	
 	@Column(name = "INSTITUTO")
 	private String instituto;

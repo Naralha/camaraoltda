@@ -15,6 +15,6 @@ public class UsuarioService implements IUsuarioService{
 	private IUsuarioDao usuarioDao;
 	
 	public List<Usuario> findByAreaVaga(String area){
-		return usuarioDao.findByAreaVaga(area);
+		return usuarioRepository.findAllById(usuarioDao.findByAreaVaga(area));
 	}
 }

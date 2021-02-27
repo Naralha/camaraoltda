@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.perfil.areaInteresse;
+package br.com.projeto.camaraoltda.usuario.curriculo.areaInteresse;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.perfil;
+package br.com.projeto.camaraoltda.usuario.curriculo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,15 +20,15 @@ public class PerfilEndpoint {
 
 	@Autowired
 	private IPerfilService perfilService;
-	private List<Perfil> listaPerfil = new ArrayList<Perfil>();
+	private List<Curriculo> listaPerfil = new ArrayList<Curriculo>();
 	
 	
 	@GetMapping
-	public ResponseEntity<List<Perfil>> findAll(){
+	public ResponseEntity<List<Curriculo>> findAll(){
 		
 		listaPerfil = perfilService.findAll();
 		
-		return new ResponseEntity<List<Perfil>>(listaPerfil, HttpStatus.OK);
+		return new ResponseEntity<List<Curriculo>>(listaPerfil, HttpStatus.OK);
 	}
 	
 	@PostMapping

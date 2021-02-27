@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.perfil;
+package br.com.projeto.camaraoltda.usuario.curriculo;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class PerfilService implements IPerfilService{
 	private PerfilRepository perfilRepository;
 	
 	@Override
-	public List<Perfil> findAll() {
+	public List<Curriculo> findAll() {
 		return perfilRepository.findAll();
 	}
 	

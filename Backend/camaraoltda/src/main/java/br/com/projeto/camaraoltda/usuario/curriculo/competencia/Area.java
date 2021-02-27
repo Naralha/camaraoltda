@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -16,6 +17,7 @@ public class Area {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@PrimaryKeyJoinColumn
 	@Column(name = "ID_AREA")
 	private Integer id;
 	

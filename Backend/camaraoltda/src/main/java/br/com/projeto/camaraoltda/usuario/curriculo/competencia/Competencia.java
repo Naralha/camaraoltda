@@ -22,6 +22,9 @@ public class Competencia {
 	@Column(name = "ID_PAI")
 	private String idPai;
 	
+	@Column(name = "DESCRICAO")
+	private String descricao;
+	
 	@Column(name = "TIPO")
 	private String tipo;
 	

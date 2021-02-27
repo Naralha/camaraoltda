@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.projeto.camaraoltda.usuario.curriculo.competencia.Area;
 import lombok.Data;
 
 @Data
@@ -19,8 +22,8 @@ public class AreaInteresse {
 	@Column(name = "ID_AREA_INTERESSE")
 	private Integer id;
 	
-	//Criar enum e tabela dominio
-	@Column(name = "AREA_INTERESSE")
-	private String areaInteresse;
+	@OneToOne
+	@JoinColumn(name = "idArea", referencedColumnName = "ID_AREA")
+	private Area area;
 	
 }

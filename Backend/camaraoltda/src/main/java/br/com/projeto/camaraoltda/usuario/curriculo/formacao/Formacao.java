@@ -1,4 +1,4 @@
-package br.com.projeto.camaraoltda.perfil.formacao;
+package br.com.projeto.camaraoltda.usuario.curriculo.formacao;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.projeto.camaraoltda.perfil.Perfil;
+import br.com.projeto.camaraoltda.usuario.curriculo.Curriculo;
 import lombok.Data;
 
 @Data
@@ -27,9 +27,9 @@ public class Formacao {
 	private Integer id;
 	
 	@ManyToOne
-    @JoinColumn(name = "ID_PERFIL")
+    @JoinColumn(name = "ID_CURRICULO")
 	@JsonIgnore
-	private Perfil perfil;
+	private Curriculo curriculo;
 	
 	@Column(name = "INSTITUTO")
 	private String instituto;

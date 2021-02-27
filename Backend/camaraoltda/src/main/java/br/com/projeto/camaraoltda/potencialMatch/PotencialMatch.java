@@ -8,12 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import br.com.projeto.camaraoltda.perfil.Perfil;
+import br.com.projeto.camaraoltda.usuario.curriculo.Curriculo;
 import br.com.projeto.camaraoltda.vaga.Vaga;
 import lombok.Data;
 
@@ -29,8 +28,8 @@ public class PotencialMatch {
 	private Integer id;
 		
 	@ManyToOne
-	@JoinColumn(name = "ID_PERFIL")
-	private Perfil perfil;
+	@JoinColumn(name = "ID_CURRICULO")
+	private Curriculo curriculo;
 		
 	@ManyToOne
 	@JoinColumn(name = "ID_VAGA")

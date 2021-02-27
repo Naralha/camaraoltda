@@ -1,0 +1,67 @@
+Candidato
+    - CandidatoId
+    - Nome
+    - ImagemUrl
+    - Idade
+    - Localidade
+    - Descrição
+
+FormacaoAcademica
+    - CandidatoId
+    - Formacao
+    - Instituicao
+
+Experiencias
+    - CandidatoId
+    - DataInicio
+    - DataFim
+    - Empresa
+    - Cargo
+    - Descrição
+
+CandidatoCompetencia
+    - CandidatoId
+    - CompetenciaId
+
+CandidatoAreaInteresse:
+    - CandidatoId
+    - AreaInteresseId
+
+CandidatoVaga:
+    - VagaId (FK)
+    - CandidatoId (FK)
+    - FavoritadoPeloCandidato
+    - EmpresaAcao // 0 = sem acao, 1 = like, -1 dislike
+    - CandidatoAcao // 0 = sem acao, 1 = like, -1 dislike
+    - AcaoEmpresaTimestamp
+    - AcaoCandidatoTimestamp
+
+Competencias:
+    - CompetenciaId
+    - CompetenciaNome
+
+AreasInteresse:
+    - AreaInteresseId
+    - AreaInteresseNome
+
+Vagas:
+    - VagaId (PK)
+    - EmpresaId (FK)
+    - Status
+    - Nome
+    - Descrição
+
+VagaCompetência:
+    - VagaId
+    - TipoCompetenciaId (FK)
+    - Valor
+
+VagaCompetênciaMinimos:
+    - TipoCompetenciaId (PK)
+    - Nome
+
+Empresa
+    - Nome Fantasia
+    - ImagemUrl
+    - CNPJ
+    - Detalhes

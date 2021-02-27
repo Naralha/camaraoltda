@@ -1,0 +1,46 @@
+version: "3.1"
+services:
+  jobmatch-backend:
+    container_name: jobmatch-backend
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "9090:8080"
+    networks:
+      - job-match-network
+    environment:
+      - DATABASE_SOURCE=jdbc:postgresql://postgres/${POSTGRES_DATABASE}
+      - DATABASE_USERNAME=${POSTGRES_USER}
+      - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:11
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=${POSTGRES_DATABASE}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - job-match-network
+  pgadmin:
+    image: dpage/pgadmin4:2020-06-23-1
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    networks:
+      - job-match-network
+    depends_on:
+      - postgres
+networks:
+  job-match-network:
+volumes:
+  pgdata:

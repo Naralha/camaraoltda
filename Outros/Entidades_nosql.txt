@@ -1,0 +1,32 @@
+Candidato
+    - Formação acadêmica: [{"tipoFormacao": "Ensino Superior", "instituicao": "UVA"}]
+    - Experiencia: [{}, {}, {}, ...]
+    - Competencias: [{}, {}, {}, ...]
+    - Areas de interesse: [{}, {}, {}, ...]
+    - Like: [{
+        vagaId: "72fb798c-e348-46f6-b2fb-99596c74e018"
+        tipoLike: 0 // Empresa = 0, Candidato = 1, Ambos = 2
+    },
+    {
+        vagaId: "d9e6ebf0-fb43-425d-bcbd-cd20fda7bf9b"
+        tipoLike: 2 // Empresa = 0, Candidato = 1, Ambos = 2
+    }]
+
+
+
+Empresa
+    - Vagas: ["f48b8e1d-3aa9-4cc5-8934-7b55f3502a9f", "de8b8e1d-3aa9-4cc5-8934-7b55f3502a9f"]
+
+
+
+
+Vagas
+    - Empresa: "538ae7a3-d8ec-437a-887f-d59d20ba18d0"
+    - Like: [{
+        candidatoId: "3a1cccf8-26bc-4bb1-b898-0fa44409bd13"
+        tipoLike: 0 // Empresa = 0, Candidato = 1, Ambos = 2
+    },
+    {
+        candidatoId: "f7121307-53b0-4ca2-9313-61607d2ff996"
+        tipoLike: 2 // Empresa = 0, Candidato = 1, Ambos = 2
+    }]

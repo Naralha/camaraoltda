@@ -44,6 +44,9 @@ INSERT INTO public.competencia(
 INSERT INTO public.competencia(
 	id_competencia, descricao, tipo, id_area)
 	VALUES (4, 'Java EE', 'C', 1);
+INSERT INTO public.competencia(
+	id_competencia, descricao, tipo, id_area)
+	VALUES (5, 'Spring Rest', 'C', 1);
 
 	
 INSERT INTO public.curriculo_competencia(
@@ -66,5 +69,25 @@ INSERT INTO public.relacionamento_competencia(
 INSERT INTO public.relacionamento_competencia(
 	id_relacionamento_competencia, id_filho, id_pai)
 	VALUES (3, 4, 1);
+	
+INSERT INTO public.formacao(
+	id_formacao, status, curso, dt_fim, dt_inicio, instituto, id_usuario)
+	VALUES (1, 'E', 'engenharia', '10-02-2020', '20-02-2020', 'UFRJ', 1);
+INSERT INTO public.formacao(
+	id_formacao, status, curso, dt_fim, dt_inicio, instituto, id_usuario)
+	VALUES (2, 'E', 'engenharia', '10-02-2020', '20-02-2020', 'UFRJ', 2);
+INSERT INTO public.formacao(
+	id_formacao, status, curso, dt_fim, dt_inicio, instituto, id_usuario)
+	VALUES (3, 'E', 'administracao', '10-02-2020', '20-02-2020', 'UFRJ', 3);
+INSERT INTO public.formacao(
+	id_formacao, status, curso, dt_fim, dt_inicio, instituto, id_usuario)
+	VALUES (4, 'E', 'medicina', '10-02-2020', '20-02-2020', 'UFRJ', 4);
+INSERT INTO public.formacao(
+	id_formacao, status, curso, dt_fim, dt_inicio, instituto, id_usuario)
+	VALUES (5, 'E', 'matematica', '10-02-2020', '20-02-2020', 'UFRJ', 5);
+	
+	
+
+	
 	
 	

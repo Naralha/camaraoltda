@@ -1,3 +1,4 @@
+#!/bin/bash
 read_parameters() {
     while getopts "r" opt; do
         case $opt in
@@ -18,7 +19,7 @@ docker-compose 2>/dev/null
 
 if [ "${RESET_DATABASE}" = "true" ]; then
     echo "Removendo os volumes existentes..."
-    docker volume rm "pgdata"
+    docker volume rm "pgdata" 2>/dev/null
 fi
 
 echo "Subindo os novos containers..."

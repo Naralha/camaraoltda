@@ -15,25 +15,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/perfil")
-public class PerfilEndpoint {
+@RequestMapping(value = "/curriculo")
+public class CurriculoEndpoint {
 
 	@Autowired
-	private IPerfilService perfilService;
+	private ICurriculoService curriculoService;
 	private List<Curriculo> listaPerfil = new ArrayList<Curriculo>();
 	
 	
 	@GetMapping
 	public ResponseEntity<List<Curriculo>> findAll(){
 		
-		listaPerfil = perfilService.findAll();
+		listaPerfil = curriculoService.findAll();
 		
 		return new ResponseEntity<List<Curriculo>>(listaPerfil, HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Perfil> save(@RequestBody Perfil perfil){
-		return new ResponseEntity<Perfil>(perfilService.save(perfil), HttpStatus.OK);
+	public ResponseEntity<Curriculo> save(@RequestBody Curriculo curriculo){
+		return new ResponseEntity<Curriculo>(curriculoService.save(curriculo), HttpStatus.OK);
 	}
 	
 ////	@PostMapping

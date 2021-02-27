@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PerfilService implements IPerfilService{
+public class CurriculoService implements ICurriculoService{
 
 	@Autowired
 	private PerfilRepository perfilRepository;
@@ -17,8 +17,8 @@ public class PerfilService implements IPerfilService{
 	}
 	
 	@Override
-	public Perfil save(Perfil perfil) {
-		return perfilRepository.save(perfil);
+	public Curriculo save(Curriculo curriculo) {
+		return perfilRepository.save(curriculo);
 	}
 
 }

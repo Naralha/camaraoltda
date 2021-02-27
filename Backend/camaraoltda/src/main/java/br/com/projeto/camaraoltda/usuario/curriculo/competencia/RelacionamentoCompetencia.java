@@ -23,10 +23,10 @@ public class RelacionamentoCompetencia {
 	
 	@OneToOne
 	@JoinColumn(name = "idFilho", referencedColumnName = "ID_COMPETENCIA")
-	private Integer idFilho;
+	private Competencia idFilho;
 	
 	@OneToOne
 	@JoinColumn(name = "idPai", referencedColumnName = "ID_COMPETENCIA")
-	private Integer idPai;
+	private Competencia idPai;
 	
 }

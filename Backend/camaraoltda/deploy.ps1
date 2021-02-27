@@ -1,7 +1,8 @@
  param (
     [string]$postgres_username = "postgres",
     [Parameter(Mandatory=$true)][string]$postgres_password,
-    [switch]$reset_database = $true
+    [switch]$reset_database = $true,
+    [switch]$no_cache = $false
  )
 
 Write-Host "Removendo containers existentes...";
@@ -13,7 +14,9 @@ if($reset_database) {
     docker volume rm "deploy_files_pgdata";
 }
 
-docker-compose build --no-cache;
+if($no_cache) {
+    docker-compose build --no-cache;
+}
 
 Write-Host "Subindo os novos containers...";
 docker-compose up -d;
@@ -22,7 +25,9 @@ Start-Sleep -s 15;
 
 Write-Host "Fazendo carga no banco...";
 
-Write-Host "*:*:*:${postgres_username}:${postgres_password}" > "${HOME}/pgpass.conf";
+Remove-Item "$env:HOME/pgpass.conf" -Force;
+New-Item "${home}/pgpass.conf"
+Set-Content "${home}/pgpass.conf" "*:*:*:${postgres_username}:${postgres_password}"
 
 docker cp "${HOME}/pgpass.conf" postgres:/;
 docker cp ./deploy_files/carga_pesada.sql postgres:/carga.pesada.sql;

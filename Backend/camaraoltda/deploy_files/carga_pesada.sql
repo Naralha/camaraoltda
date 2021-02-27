@@ -11,7 +11,7 @@ values
 insert into
     usuario
 values
-    (3, 'teste.url', '37' 'Ellon Musk');
+    (3, 'teste.url', '37', 'Elon Musk');
 
 insert into
     usuario
@@ -21,7 +21,7 @@ values
 insert into
     usuario
 values
-    (5, 'teste.url', '39','John Petruci');
+    (5, 'teste.url', '39','John Petrucci');
 
 INSERT INTO
     public.curriculo(id_curriculo, id_usuario)

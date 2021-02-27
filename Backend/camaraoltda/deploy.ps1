@@ -25,9 +25,9 @@ Start-Sleep -s 15;
 
 Write-Host "Fazendo carga no banco...";
 
-Remove-Item "$env:HOME/pgpass.conf" -Force;
-New-Item "${home}/pgpass.conf"
-Set-Content "${home}/pgpass.conf" "*:*:*:${postgres_username}:${postgres_password}"
+Remove-Item "${HOME}/pgpass.conf" -Force;
+New-Item "${HOME}/pgpass.conf"
+Set-Content "${HOME}/pgpass.conf" "*:*:*:${postgres_username}:${postgres_password}"
 
 docker cp "${HOME}/pgpass.conf" postgres:/;
 docker cp ./deploy_files/carga_pesada.sql postgres:/carga.pesada.sql;

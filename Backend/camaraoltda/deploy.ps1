@@ -37,11 +37,7 @@ docker exec -it postgres bash -c "chmod 0600 ./pgpass.conf";
 $cmd_execute = 'docker exec postgres psql -d camaraoltda -w -U "postgres" -f "./carga.pesada.sql"'
 $env:PGPASSFILE = "/pgpass.conf"; Invoke-Expression $cmd_execute;
 
-if($LASTEXITCODE) {
-    Write-Host " Failed";
-} else {
-    Write-Host " Succeeded";
-}
+Write-Host "Finished"
 
 docker exec postgres rm "pgpass.conf";
 

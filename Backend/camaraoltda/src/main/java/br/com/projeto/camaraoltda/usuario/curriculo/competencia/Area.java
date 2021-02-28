@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -28,5 +30,6 @@ public class Area {
 	private String nomeArea;
 	
 	@OneToMany(mappedBy="area")
-	private List<Competencia> listaCompetenciasS;
+	@JsonIgnore
+	private List<Competencia> listaCompetencias;
 }

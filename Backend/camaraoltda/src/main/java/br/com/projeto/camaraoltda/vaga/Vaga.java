@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -18,6 +20,8 @@ import br.com.projeto.camaraoltda.empresa.Empresa;
 import br.com.projeto.camaraoltda.potencialMatch.PotencialMatch;
 import br.com.projeto.camaraoltda.usuario.curriculo.competencia.Area;
 import br.com.projeto.camaraoltda.usuario.curriculo.competencia.Competencia;
+import br.com.projeto.camaraoltda.vaga.vagaenum.RegimeTrabalhoEnum;
+import br.com.projeto.camaraoltda.vaga.vagaenum.TipoVagaEnum;
 import lombok.Data;
 
 @Data
@@ -49,17 +53,29 @@ public class Vaga {
 	private List<PotencialMatch> potencialMatchs;
 	
 	@Column(name = "TIPO_VAGA")
-	private Integer tipoVaga;//temporaria 0, permaneente 1
+	private TipoVagaEnum tipoVaga;//temporaria 0, permaneente 1
 	
 	@Column(name = "REGIME_TRABALHO")
-	private Integer regimeTrabalho;//clt 0, pj 1.
+	private RegimeTrabalhoEnum regimeTrabalho;//clt 0, pj 1.
 	
 	@OneToOne
 	@JoinColumn(name = "idArea", referencedColumnName = "ID_AREA")
 	private Area area;
 	
-	@OneToOne
-	@JoinColumn(name = "idCompetencia", referencedColumnName = "ID_COMPETENCIA")
-	private Competencia competencia;
+	@ManyToMany
+	@JoinTable(name = "VAGA_COMPETENCIA",
+            joinColumns={@JoinColumn(name="ID_VAGA",  
+            referencedColumnName="ID_VAGA")},  
+            inverseJoinColumns={@JoinColumn(name="ID_COMPETENCIA",   
+            referencedColumnName="ID_COMPETENCIA")})
+	private List<Competencia> listaCompetencias;
+	
+	@ManyToMany
+	@JoinTable(name = "VAGA_DIFERENCIAIS",
+            joinColumns={@JoinColumn(name="ID_VAGA",  
+            referencedColumnName="ID_VAGA")},  
+            inverseJoinColumns={@JoinColumn(name="ID_COMPETENCIA",   
+            referencedColumnName="ID_COMPETENCIA")})
+	private List<Competencia> diferenciais;
 	
 }

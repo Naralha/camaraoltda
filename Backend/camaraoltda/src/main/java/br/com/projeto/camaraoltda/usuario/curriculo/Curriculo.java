@@ -59,6 +59,4 @@ public class Curriculo {
 	@JsonIgnore
 	private Usuario usuario;
 	
-	
-	
 }

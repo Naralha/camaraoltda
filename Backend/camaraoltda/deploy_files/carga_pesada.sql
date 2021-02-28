@@ -85,6 +85,7 @@ INSERT INTO public.formacao(
 INSERT INTO public.formacao(
 	id_formacao, status, curso, dt_fim, dt_inicio, instituto, id_usuario)
 	VALUES (5, 'E', 'matematica', '10-02-2020', '20-02-2020', 'UFRJ', 5);
+insert into relacionamento_competencia values (4,5,2)
 	
 	
 

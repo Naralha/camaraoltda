@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/oauth2")
-public class OAuth2Endpoint {
-	
+@RequestMapping(value = "/loginAuth")
+public class LoginAuthEndpoint {
+
 	@Autowired
-	private ILoginService loginService;
+	private LoginAuthService loginAuthService;
 	
-	@PostMapping
+	@PostMapping(value = "/googleLoginAuth")
 	public ResponseEntity<String> loginByExternalProvider(@RequestBody OAuth2Entity oAuth2Entity) throws Exception{
 		//TODO trocar de string para JWT
-		String jwt = loginService.autenticarExternalLogin(oAuth2Entity);
+		String jwt = loginAuthService.autenticarExternalLogin(oAuth2Entity);
 		return new ResponseEntity<String>(jwt, HttpStatus.OK);
 	}
+	
 }

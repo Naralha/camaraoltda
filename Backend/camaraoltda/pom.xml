@@ -24,39 +24,44 @@
   
    <dependencies>
 		<dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-		    <version>18.0</version>
-		</dependency>
-		
-		<dependency>
-	       <groupId>javax.servlet</groupId>
-	       <artifactId>javax.servlet-api</artifactId>
-	    </dependency>
-		<dependency>
-		    <groupId>com.google.api-client</groupId>
-		    <artifactId>google-api-client-appengine</artifactId>
-		    <version>1.31.3</version>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.20.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.google.api-client</groupId>
-		    <artifactId>google-api-client-extensions</artifactId>
-		    <version>1.6.0-beta</version>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client</artifactId>
+			<version>1.20.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.google.http-client</groupId>
-		    <artifactId>google-http-client-jackson2</artifactId>
-		    <version>1.36.0</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.google.api-client</groupId>
-		    <artifactId>google-api-client-jackson2</artifactId>
-		    <version>1.20.0</version>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client-jackson</artifactId>
+			<version>1.20.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.google.api-client</groupId>
-		    <artifactId>google-api-client</artifactId>
-		    <version>1.31.2</version>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-oauth2</artifactId>
+			<version>v2-rev90-1.20.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.api.client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.4.1-beta</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sparkjava</groupId>
+		    <artifactId>spark-core</artifactId>
+		    <version>2.9.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-plus</artifactId>
+			<version>v1-rev217-1.20.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -135,7 +140,8 @@
 		</dependency>
 		
 	</dependencies>
- 
+	
+
 
   <build>
 		<plugins>

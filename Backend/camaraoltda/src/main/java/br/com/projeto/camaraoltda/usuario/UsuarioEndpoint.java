@@ -20,7 +20,7 @@ public class UsuarioEndpoint {
 	private UsuarioService usuarioService;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findByAreaVaga(@RequestParam(name = "area") String area){
+	public ResponseEntity<List<Usuario>> findByAreaVaga(@RequestParam(name = "area") String area) {
 		List<Usuario> listaUsuarios = usuarioService.findByAreaVaga(area);
 		return new ResponseEntity<List<Usuario>>(listaUsuarios, HttpStatus.OK);
 	}

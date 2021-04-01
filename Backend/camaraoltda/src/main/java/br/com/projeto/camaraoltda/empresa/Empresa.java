@@ -13,7 +13,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.projeto.camaraoltda.endereco.Endereco;
+import br.com.projeto.camaraoltda.login.Login;
 import br.com.projeto.camaraoltda.vaga.Vaga;
 import lombok.Data;
 
@@ -35,7 +38,7 @@ public class Empresa {
 	private String nomeFantasia;
 	
 	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "ID_ENDERECO")
+	@JoinColumn(name = "ID_ENDERECO", referencedColumnName = "ID_ENDERECO")
 	private Endereco endereco;
 	
 	@Column(name = "NUMERO_CONTATO")
@@ -46,5 +49,10 @@ public class Empresa {
 	
 	@OneToMany(mappedBy="empresa")
 	private List<Vaga> vagas;
+	
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name = "ID_LOGIN", referencedColumnName = "ID_LOGIN")
+	private Login login;
 	
 }

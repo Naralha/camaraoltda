@@ -7,10 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.projeto.camaraoltda.login.Login;
 import br.com.projeto.camaraoltda.usuario.curriculo.Curriculo;
 import br.com.projeto.camaraoltda.usuario.curriculo.formacao.Formacao;
 import lombok.Data;
@@ -41,5 +46,8 @@ public class Usuario {
 	@OneToMany(mappedBy="usuario")
 	private List<Formacao> formacoes;
 	
-	
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name = "ID_LOGIN", referencedColumnName = "ID_LOGIN")
+	private Login login;
 }

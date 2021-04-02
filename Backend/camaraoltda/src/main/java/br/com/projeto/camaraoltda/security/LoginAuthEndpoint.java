@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/loginAuth")
@@ -18,10 +20,10 @@ public class LoginAuthEndpoint {
 	private LoginAuthService loginAuthService;
 	
 	@PostMapping(value = "/googleLoginAuth")
-	public ResponseEntity<String> loginByExternalProvider(@RequestBody OAuth2Entity oAuth2Entity) throws Exception{
+	public ResponseEntity<GoogleIdToken.Payload> loginByExternalProvider(@RequestBody OAuth2Entity oAuth2Entity) throws Exception{
 		//TODO trocar de string para JWT
-		String jwt = loginAuthService.autenticarExternalLogin(oAuth2Entity);
-		return new ResponseEntity<String>(jwt, HttpStatus.OK);
+		GoogleIdToken.Payload jwt = loginAuthService.autenticarExternalLogin(oAuth2Entity);
+		return new ResponseEntity<GoogleIdToken.Payload>(jwt, HttpStatus.OK);
 	}
 	
 }

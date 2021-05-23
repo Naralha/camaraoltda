@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -48,11 +50,20 @@ public class Empresa {
 	private String cnpj;
 	
 	@OneToMany(mappedBy="empresa")
+	@JsonIgnore
 	private List<Vaga> vagas;
 	
-	@JsonIgnore
-	@OneToOne
-	@JoinColumn(name = "ID_LOGIN", referencedColumnName = "ID_LOGIN")
-	private Login login;
+//	@JsonIgnore
+//	@OneToOne
+//	@JoinColumn(name = "ID_LOGIN", referencedColumnName = "ID_LOGIN")
+//	private Login login;
 	
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name = "LOGIN_EMPRESA",
+            joinColumns={@JoinColumn(name="ID_EMPRESA",  
+            referencedColumnName="ID_EMPRESA")},  
+            inverseJoinColumns={@JoinColumn(name="ID_LOGIN",   
+            referencedColumnName="ID_LOGIN")})
+	private List<Login> login;
 }

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import br.com.projeto.camaraoltda.empresa.Empresa;
 import lombok.Data;
 
 @Data

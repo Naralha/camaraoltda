@@ -49,14 +49,13 @@ public class Curriculo {
 	
 	@OneToOne
 	@JoinColumn(name = "idArea", referencedColumnName = "ID_AREA")
-	private Area areaInteresse;
+	private Area area;
 	
 	@OneToMany(mappedBy="curriculo")
 	private List<PotencialMatch> potencialMatchs;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_USUARIO")
-	@JsonIgnore
 	private Usuario usuario;
 	
 }

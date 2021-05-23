@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.projeto.camaraoltda.empresa.Empresa;
 import br.com.projeto.camaraoltda.potencialMatch.PotencialMatch;
 import br.com.projeto.camaraoltda.usuario.curriculo.competencia.Area;
@@ -37,6 +39,7 @@ public class Vaga {
 	
 	@ManyToOne
     @JoinColumn(name = "ID_EMPRESA")
+	@JsonIgnore
 	private Empresa empresa;
 	
 	@Column(name = "TITULO")

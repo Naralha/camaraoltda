@@ -43,7 +43,7 @@ public class Vaga {
 	private Empresa empresa;
 	
 	@Column(name = "TITULO")
-	private String titutlo;
+	private String titulo;
 	
 	@Column(name = "DESCRICAO")
 	private String descricao;

@@ -30,6 +30,12 @@ public class Login {
 	@Column(name = "SENHA")
 	private String senha;
 	
+	@Column(name = "IMAGEM")
+	private String enderecoImagem;
+	
+	@Column(name = "EMAIL")
+	private String email;
+	
 	@Column(name = "TIPO_LOGIN")
 	private String tipoLogin;
 	

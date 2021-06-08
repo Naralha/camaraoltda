@@ -1,5 +1,6 @@
 package br.com.projeto.camaraoltda.usuario;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -34,11 +35,14 @@ public class Usuario {
 	@Column(name = "NOME")
 	private String nome;
 	
-	@Column(name = "IMAGEM")
-	private String enderecoImagem;
-	
 	@Column(name = "IDADE")
 	private String idade;
+	
+	@Column(name = "CARGO")
+	private String cargo;
+	
+	@Column(name = "DESCRICAO")
+	private String descricao;
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Curriculo> listaCurriculos;

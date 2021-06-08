@@ -11,4 +11,6 @@ import br.com.projeto.camaraoltda.empresa.Empresa;
 public interface IVagaRepository extends JpaRepository<Vaga, Integer>{
 
 	List<Vaga> findVagaByEmpresa(Empresa empresa);
+	List<Vaga> findTop3VagaByEmpresa(Empresa empresa);
+	
 }

@@ -1,8 +1,10 @@
 package br.com.projeto.camaraoltda.fluxoPrincipalEmpresa;
 
+import java.util.Map;
+
 import br.com.projeto.camaraoltda.empresa.Empresa;
 
 public interface ITelaFluxoPrincipalEmpresaService {
 
-	TelaFluxoPrincipalEmpresa navegarUsuario(Empresa empresa);
+	Map<String, Object> navegarUsuario(Empresa empresa);
 }
